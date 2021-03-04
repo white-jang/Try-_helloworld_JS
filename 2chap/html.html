@@ -5,41 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        .character {
-            color: black;
-        }
-
-        .word {
-            color: gray;
-        }
     </style>
-    <script>
-        let req = new XMLHttpRequest();
-        req.onreadystatechange = function a() {
-            console.log(this.readyState, this.status);
-            if (this.readyState === 4) {
-                console.log(this.response);
-                let data = JSON.parse(this.response);
-                for (let i in data) {
-                    let t = document.getElementById("template").cloneNode(true);
-                    t.removeAttribute("id");
-                    t.children[0].innerText = data[i].id; // 첫 번째 span
-                    t.children[1].innerText = data[i].msg // 두 번째 span
-                    document.body.appendChild(t);
-                }
-            }
-        }
-        req.open("GET", "http://google.com");
-        req.send();
-    </script>
+    <script src="script.js"></script>
     <title>Document</title>
 </head>
 
 <body>
-    <p id="template">
-        <span class="character">주인공</span> : <span class="word">명대사</span>
-    </p>
+    <p onclick="eventHandler();">Javascript Debugger</p>
 </body>
-<!-- <script src="js.js"></script> -->
 
 </html>
